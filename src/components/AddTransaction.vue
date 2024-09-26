@@ -35,6 +35,7 @@ const toast = useToast();
 const addTransaction = () => {
   if (!text.value || !amount.value) {
     toast.error("All Fields must be field");
+    return;
   }
 
   const transactionData = {
@@ -43,8 +44,6 @@ const addTransaction = () => {
   };
 
   emit("transactionSubmitted", transactionData);
-
-  toast.success("Transaction Data Submitted Successfully");
 
   text.value = "";
   amount.value = "";
